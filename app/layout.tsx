@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Bako High School Exam Bank',
   description: 'Exam Bank Management System for Bako High School',
+  verification: {
+    google: 'Hj-4Zc4ne9851Hw6zpRZxWrms6QOocMXIT6nZrSGIlY',
+  },
 };
 
 export default function RootLayout({
