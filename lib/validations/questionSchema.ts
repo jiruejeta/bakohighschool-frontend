@@ -14,7 +14,7 @@ export const questionSchema = z.object({
   choiceC: z.string().min(1, 'Choice C is required'),
   choiceD: z.string().min(1, 'Choice D is required'),
   correctAnswer: z.enum(['A', 'B', 'C', 'D'], {
-    errorMap: () => ({ message: 'Select the correct answer' }),
+    message: 'Select the correct answer',
   }),
   explanation: z.string().optional(),
   explanationVideoUrl: z
