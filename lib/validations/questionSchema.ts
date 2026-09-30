@@ -9,6 +9,7 @@ export const questionSchema = z.object({
   nationalExam: z.string().optional(),
   questionNumber: z.coerce.number().min(1, 'Question number must be at least 1'),
   questionText: z.string().min(1, 'Question text is required'),
+  passage: z.string().optional(),
   choiceA: z.string().min(1, 'Choice A is required'),
   choiceB: z.string().min(1, 'Choice B is required'),
   choiceC: z.string().min(1, 'Choice C is required'),

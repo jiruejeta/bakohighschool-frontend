@@ -59,6 +59,7 @@ export default function QuestionForm({ initialData }: QuestionFormProps) {
           nationalExam: getId(initialData.nationalExam) || '',
           questionNumber: initialData.questionNumber,
           questionText: initialData.questionText,
+          passage: initialData?.passage || '',
           choiceA: initialData.choices.A,
           choiceB: initialData.choices.B,
           choiceC: initialData.choices.C,
@@ -75,6 +76,7 @@ export default function QuestionForm({ initialData }: QuestionFormProps) {
           nationalExam: '',
           questionNumber: 1,
           questionText: '',
+          passage: '',
           choiceA: '',
           choiceB: '',
           choiceC: '',
@@ -142,6 +144,7 @@ export default function QuestionForm({ initialData }: QuestionFormProps) {
       if (values.nationalExam) formData.append('nationalExam', values.nationalExam);
       formData.append('questionNumber', String(values.questionNumber));
       formData.append('questionText', values.questionText);
+      if (values.passage) formData.append('passage', values.passage);
       formData.append('choices[A]', values.choiceA);
       formData.append('choices[B]', values.choiceB);
       formData.append('choices[C]', values.choiceC);
@@ -286,6 +289,22 @@ export default function QuestionForm({ initialData }: QuestionFormProps) {
 
       <div className="bg-white rounded-xl border border-slate-200 p-5">
         <h3 className="text-sm font-semibold text-slate-900 mb-4">Question</h3>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            Reading Passage (optional)
+          </label>
+          <textarea
+            {...register('passage')}
+            rows={5}
+            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+            placeholder="Paste the reading passage here — shown above the question"
+          />
+          <p className="text-xs text-slate-400 mt-1">
+            Use this for English comprehension questions. Leave blank if not needed.
+          </p>
+        </div>
+
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1.5">Question Text</label>
           <textarea

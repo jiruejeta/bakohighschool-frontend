@@ -114,6 +114,14 @@ export default function StudentChapterQuizPage() {
 
       <div className="bg-white rounded-2xl border border-blue-100 p-6 shadow-sm">
         <p className="text-xs font-medium text-blue-400 mb-2">Question {current.questionNumber}</p>
+
+        {current.passage ? (
+          <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-4">
+            <p className="text-xs font-semibold text-blue-500 mb-1.5">Reading Passage</p>
+            <p className="text-sm text-blue-900/80 whitespace-pre-wrap">{current.passage}</p>
+          </div>
+        ) : null}
+
         <p className="text-base font-medium text-blue-950 mb-4">{current.questionText}</p>
 
         {current.questionImage?.url && (

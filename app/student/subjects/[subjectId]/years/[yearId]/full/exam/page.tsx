@@ -120,6 +120,16 @@ export default function FullExamPage() {
                   {r.isCorrect ? 'Correct' : 'Incorrect'}
                 </span>
               </div>
+
+              {r.passage ? (
+                <div className="bg-blue-50 border border-blue-100 rounded-lg p-3 mb-2">
+                  <p className="text-xs font-semibold text-blue-500 mb-1">Reading Passage</p>
+                  <p className="text-xs text-blue-900/80 whitespace-pre-wrap line-clamp-4">
+                    {r.passage}
+                  </p>
+                </div>
+              ) : null}
+
               <p className="text-sm font-medium text-blue-950 mb-2">{r.questionText}</p>
               <p className="text-xs text-blue-500">
                 Your answer: <span className="font-semibold">{r.yourAnswer}</span> · Correct answer:{' '}
@@ -173,6 +183,13 @@ export default function FullExamPage() {
       </div>
 
       <div className="bg-white rounded-2xl border border-blue-100 p-6 shadow-sm">
+        {current.passage ? (
+          <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-4">
+            <p className="text-xs font-semibold text-blue-500 mb-1.5">Reading Passage</p>
+            <p className="text-sm text-blue-900/80 whitespace-pre-wrap">{current.passage}</p>
+          </div>
+        ) : null}
+
         <p className="text-base font-medium text-blue-950 mb-4">{current.questionText}</p>
 
         {current.questionImage?.url && (

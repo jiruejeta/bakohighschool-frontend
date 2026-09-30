@@ -62,6 +62,11 @@ export default function QuestionPreviewCard(props: QuestionPreviewCardProps) {
                 <PlayCircle size={11} /> Video
               </span>
             ) : null}
+            {question.passage ? (
+              <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700">
+                Passage
+              </span>
+            ) : null}
             <span
               className={
                 question.status === 'published'
@@ -72,6 +77,14 @@ export default function QuestionPreviewCard(props: QuestionPreviewCardProps) {
               {question.status}
             </span>
           </div>
+
+          {question.passage ? (
+            <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 mb-2 max-h-24 overflow-hidden">
+              <p className="text-xs font-semibold text-slate-500 mb-1">Reading Passage</p>
+              <p className="text-xs text-slate-600 line-clamp-3">{question.passage}</p>
+            </div>
+          ) : null}
+
           <p className="text-sm font-medium text-slate-900">{question.questionText}</p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
@@ -88,6 +101,13 @@ export default function QuestionPreviewCard(props: QuestionPreviewCardProps) {
 
       {expanded && (
         <div className="px-5 pb-5 border-t border-slate-100 pt-4">
+          {question.passage ? (
+            <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 mb-4">
+              <p className="text-xs font-semibold text-slate-500 mb-2">Reading Passage</p>
+              <p className="text-sm text-slate-700 whitespace-pre-wrap">{question.passage}</p>
+            </div>
+          ) : null}
+
           {question.questionImage && question.questionImage.url && (
             <img
               src={question.questionImage.url}

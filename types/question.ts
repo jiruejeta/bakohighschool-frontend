@@ -11,6 +11,7 @@ export interface Question {
   nationalExam?: { _id: string; year: number; title: string } | string | null;
   questionNumber: number;
   questionText: string;
+  passage?: string;
   questionImage?: CloudinaryFile;
   choices: { A: string; B: string; C: string; D: string };
   correctAnswer: 'A' | 'B' | 'C' | 'D';
@@ -39,6 +40,7 @@ export interface QuestionItemResponse {
 export interface BulkQuestionInput {
   questionNumber: number;
   questionText: string;
+  passage?: string;
   choices: { A: string; B: string; C: string; D: string };
   correctAnswer: 'A' | 'B' | 'C' | 'D';
   explanation?: string;

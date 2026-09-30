@@ -32,7 +32,7 @@ function parseBulkText(text: string): ParsedRow[] {
     if (parts.length < 7) {
       return { row: idx + 1, valid: false, error: 'Expected at least 7 fields separated by |' };
     }
-    const [qNum, qText, a, b, c, d, correct, explanation] = parts;
+    const [qNum, qText, a, b, c, d, correct, explanation, passage] = parts;
     const correctUpper = correct.toUpperCase();
 
     if (!qNum || isNaN(Number(qNum))) {
@@ -54,6 +54,7 @@ function parseBulkText(text: string): ParsedRow[] {
         choices: { A: a, B: b, C: c, D: d },
         correctAnswer: correctUpper as 'A' | 'B' | 'C' | 'D',
         explanation: explanation || '',
+        passage: passage || '',
       },
     };
   });
@@ -257,15 +258,22 @@ export default function BulkQuestionUploadPage() {
           <br />
           <code className="bg-slate-100 px-1 rounded text-[11px] block mt-1.5 whitespace-pre-wrap">
             QuestionNumber | Question Text | Choice A | Choice B | Choice C | Choice D |
-            CorrectAnswer(A/B/C/D) | Explanation (optional)
+            CorrectAnswer(A/B/C/D) | Explanation (optional) | Reading Passage (optional)
           </code>
         </p>
         <p className="text-xs text-slate-400 mb-3">
           Example:{' '}
           <code className="bg-slate-100 px-1 rounded text-[11px]">
             1 | What is the powerhouse of the cell? | Nucleus | Mitochondria | Ribosome | Golgi
-            apparatus | B | Mitochondria produce ATP.
+            apparatus | B | Mitochondria produce ATP. |
           </code>
+        </p>
+        <p className="text-xs text-slate-400 mb-3">
+          The <span className="font-medium">Reading Passage</span> field is optional (9th field).
+          For comprehension questions where several questions share the same passage, simply
+          paste the <span className="font-medium">identical passage text</span> as the 9th field
+          on every line that shares it — repetitive, but keeps the format simple and consistent.
+          It will be shown above the question in the student app.
         </p>
         <textarea
           value={rawText}

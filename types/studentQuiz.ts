@@ -7,6 +7,7 @@ export interface QuizQuestion {
   _id: string;
   questionNumber: number;
   questionText: string;
+  passage?: string;
   questionImage?: QuizCloudinaryFile;
   choices: { A: string; B: string; C: string; D: string };
   grade: number;
@@ -21,6 +22,7 @@ export interface AnswerFeedback {
   selectedAnswer: 'A' | 'B' | 'C' | 'D';
   isCorrect: boolean;
   correctAnswer: 'A' | 'B' | 'C' | 'D';
+  passage?: string;
   explanation?: string;
   explanationImage?: QuizCloudinaryFile;
   explanationVideoUrl?: string | null;
@@ -31,6 +33,7 @@ export interface BatchResultItem {
   questionId: string;
   questionNumber: number;
   questionText: string;
+  passage?: string;
   yourAnswer: string;
   correctAnswer: string;
   isCorrect: boolean;
