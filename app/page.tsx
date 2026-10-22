@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 // ---- EDIT THESE ----
 const SCHOOL_NAME = 'Bako High School';
-const APK_URL = ''; // paste your APK download link here, e.g. https://expo.dev/artifacts/...
+const APK_URL = 'https://expo.dev/accounts/jiregna/projects/bako-high-school-mobile/builds/4230a7d8-e406-42bf-898b-de6e76e76546'; 
 // --------------------
 
 const features = [
