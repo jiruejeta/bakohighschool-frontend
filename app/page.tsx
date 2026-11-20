@@ -4,13 +4,14 @@ import Link from 'next/link';
 import {
   BookOpen,
   Clock,
-  Download,
   GraduationCap,
   ShieldCheck,
   Smartphone,
   Video,
   ArrowRight,
 } from 'lucide-react';
+import TopStudentsSection from '@/components/landing/TopStudentsSection';
+import AppDownloadSection from '@/components/landing/AppDownloadSection';
 
 export const metadata: Metadata = {
   title: 'Bako High School | Online Exam Bank',
@@ -18,10 +19,7 @@ export const metadata: Metadata = {
     'Bako High School online exam bank. Practice previous national exam questions with answers, explanations and videos, online or offline.',
 };
 
-// ---- EDIT THESE ----
 const SCHOOL_NAME = 'Bako High School';
-const APK_URL = 'https://expo.dev/accounts/jiregna/projects/bako-high-school-mobile/builds/4230a7d8-e406-42bf-898b-de6e76e76546'; 
-// --------------------
 
 const features = [
   {
@@ -78,6 +76,7 @@ export default function Home() {
           <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
             <a href="#about" className="hover:text-blue-700">About</a>
             <a href="#features" className="hover:text-blue-700">Features</a>
+            <a href="#top-students" className="hover:text-blue-700">Top Students</a>
             <a href="#gallery" className="hover:text-blue-700">Gallery</a>
             <a href="#app" className="hover:text-blue-700">Mobile App</a>
           </nav>
@@ -201,8 +200,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TOP STUDENTS (from admin panel) */}
+      <div className="bg-blue-50/60">
+        <TopStudentsSection />
+      </div>
+
       {/* GALLERY */}
-      <section id="gallery" className="scroll-mt-20 bg-blue-50/60">
+      <section id="gallery" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-bold uppercase tracking-wider text-blue-600">Our students</p>
@@ -230,38 +234,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MOBILE APP */}
-      <section id="app" className="scroll-mt-20">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-          <div className="overflow-hidden rounded-3xl bg-linear-to-br from-blue-800 to-blue-600 px-6 py-12 text-center sm:px-12">
-            <Smartphone className="mx-auto text-blue-200" size={38} />
-            <h2 className="mt-4 text-2xl font-extrabold text-white sm:text-3xl">
-              Study anywhere with the Android app
-            </h2>
-            <p className="mx-auto mt-3 max-w-xl text-blue-100">
-              Download a subject once, then practice questions, answers and explanations
-              with no internet. Log in with the same username and password.
-            </p>
-
-            {APK_URL ? (
-              <a
-                href={APK_URL}
-                className="mt-7 inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 font-bold text-blue-800 hover:bg-blue-50"
-              >
-                <Download size={18} />
-                Download the App
-              </a>
-            ) : (
-              <p className="mt-7 inline-block rounded-xl border border-white/30 px-5 py-3 text-sm text-blue-100">
-                Ask your teacher for the app download link.
-              </p>
-            )}
-          </div>
-        </div>
-      </section>
+      {/* MOBILE APP (download link from admin panel) */}
+      <div className="bg-blue-50/60">
+        <AppDownloadSection />
+      </div>
 
       {/* FINAL CTA */}
-      <section className="border-t border-blue-100 bg-blue-50/60">
+      <section className="border-t border-blue-100">
         <div className="mx-auto max-w-6xl px-4 py-14 text-center sm:px-6">
           <h2 className="text-2xl font-extrabold text-blue-950 sm:text-3xl">Ready to start practicing?</h2>
           <p className="mt-2 text-slate-600">

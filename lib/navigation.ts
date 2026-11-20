@@ -7,6 +7,8 @@ import {
   HelpCircle,
   Search,
   Users,
+  Trophy,
+  Smartphone,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -25,4 +27,6 @@ export const navItems: NavItem[] = [
   { label: 'Search', href: '/admin/search', icon: Search },
   { label: 'Sections', href: '/admin/sections', icon: GraduationCap },
   { label: 'Students', href: '/admin/students', icon: Users },
+  { label: 'Top Students', href: '/admin/top-students', icon: Trophy },
+  { label: 'App Releases', href: '/admin/app-releases', icon: Smartphone },
 ];
